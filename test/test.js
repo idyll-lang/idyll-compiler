@@ -34,7 +34,6 @@ describe('compiler', function() {
     it('should handle equations that start with a parenthesis', function () {
       var lex = Lexer();
       var results = lex("[Equation](y)[/Equation]");
-      console.log('results.tokens:', results.tokens);
       expect(results.tokens).to.eql('OPEN_BRACKET COMPONENT_NAME TOKEN_VALUE_START "Equation" TOKEN_VALUE_END CLOSE_BRACKET WORDS TOKEN_VALUE_START "(y)" TOKEN_VALUE_END OPEN_BRACKET FORWARD_SLASH COMPONENT_NAME TOKEN_VALUE_START "Equation" TOKEN_VALUE_END CLOSE_BRACKET EOF');
     });
 
