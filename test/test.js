@@ -31,7 +31,7 @@ describe('compiler', function() {
       expect(results.tokens.split(' ')).to.eql(['WORDS', 'TOKEN_VALUE_START', '\"text\"', 'TOKEN_VALUE_END', 'EOF']);
     });
 
-    it('should handle equations', function () {
+    it('should handle equations that start with a parenthesis', function () {
       var lex = Lexer();
       var results = lex("[Equation](y)[/Equation]");
       console.log('results.tokens:', results.tokens);
