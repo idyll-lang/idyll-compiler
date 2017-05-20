@@ -24,10 +24,18 @@ describe('compiler', function() {
       var results = lex("\n## my title");
       expect(results.tokens).to.eql('HEADER_2 TOKEN_VALUE_START "my title" TOKEN_VALUE_END EOF');
     });
+
     it('should handle newlines', function() {
       var lex = Lexer();
       var results = lex("\n\n\n\n text \n\n");
       expect(results.tokens.split(' ')).to.eql(['WORDS', 'TOKEN_VALUE_START', '\"text\"', 'TOKEN_VALUE_END', 'EOF']);
+    });
+
+    it('should handle equations', function () {
+      var lex = Lexer();
+      var results = lex("[Equation](y)[/Equation]");
+      console.log('results.tokens:', results.tokens);
+      expect(results.tokens).to.eql('OPEN_BRACKET COMPONENT_NAME TOKEN_VALUE_START "Equation" TOKEN_VALUE_END CLOSE_BRACKET WORDS TOKEN_VALUE_START "(y)" TOKEN_VALUE_END OPEN_BRACKET FORWARD_SLASH COMPONENT_NAME TOKEN_VALUE_START "Equation" TOKEN_VALUE_END CLOSE_BRACKET EOF');
     });
 
     it('should handle backticks in a paragraph', function() {
