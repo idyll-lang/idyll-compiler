@@ -1,4 +1,4 @@
-***THIS REPO HAS BEEN DEPRECATED - THE CODE HAS MOVED TO https://github.com/idyll-lang/idyll***
+***THIS REPO HAS MOVED - THE CODE IS NOW AT https://github.com/idyll-lang/idyll***
 
 
 # idyll-compiler
